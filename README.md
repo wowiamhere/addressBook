@@ -3,3 +3,6 @@
 #### *resume: * **bitbucket.org/wowiamhere/coding-resume**  
 
 Employment submission for **Jungle Coders**  
+
+- Devise for authentication  
+- 

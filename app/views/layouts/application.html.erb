@@ -9,6 +9,14 @@
   </head>
 
   <body>
+
+          <!-- for flash messages -->
+    <div class="">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %> cFlashMsg"><%= message %></div>
+      <% end %>
+    </div> 
+
     <%= yield %>
   </body>
 </html>
