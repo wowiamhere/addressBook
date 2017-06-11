@@ -4,5 +4,7 @@
 
 Employment submission for **Jungle Coders**  
 
-- Devise for authentication  
+- Devise for authentication   
+- Devise Login page is root  
+- Upon successful login redirects to `ContactsController#index`  
 - 
