@@ -1,0 +1,13 @@
+<div class="navClass">
+
+  <% if user_signed_in? %>
+
+  <h3>Currently logged in: <%= current_user.email %></h3>
+
+    <button class="btn-lk btn-md newPostBtn">
+      <%= link_to('logout', destroy_user_session_path, method: :delete) %>
+    </button>
+
+ <% end %>
+
+</div>
