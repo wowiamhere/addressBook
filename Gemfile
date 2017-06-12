@@ -22,7 +22,7 @@ gem 'bootstrap-sass'
 gem 'devise'
 
 group :development, :test do
-  gem 'byebug', platform: :mri
+  gem 'byebug'
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'factory_girl_rails'
@@ -32,6 +32,7 @@ end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
+  gem 'byebug'
 
 end
 

@@ -19,6 +19,12 @@ RSpec.describe Contact, type: :model do
       expect{ @contact_1.save! }.to raise_error ActiveRecord::RecordInvalid
     end
 
+    it "---->should NOT save if NOT ASSOCIATED to a user" do 
+      @contact_1 = build :contact
+      @contact_1.user_id = nil
+
+      expect{ @contact_1.save! }.to raise_error ActiveRecord::RecordInvalid
+    end
 
   end
 
