@@ -1,4 +1,9 @@
-<p id="notice"><%= notice %></p>
+<!-- 
+###########
+  - displays @contacts from contacts#index (all contacts)
+  - uses app/helpers/contact_helper.rb returns converted birthdate to age
+##########
+-->
 
 <h1>Contacts</h1>
 
@@ -16,19 +21,38 @@
   </thead>
 
   <tbody>
-    <% @contacts.each do |contact| %>
-      <tr>
-        <td><%= contact.name %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.phone %></td>
-        <td><%= contact.address %></td>
-        <td><%= contact.company %></td>
-        <td><%= get_age(contact.birtday) %></td>
-        <td><%= link_to 'Show', contact %></td>
-        <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-        <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+
+<!-- ajax form for soft deletion 
+      - takes a set of cliked boxex and sets ther db column 'soft_del' to true
+-->    
+  
+    <%= form_tag deactivate_contact_path do  %>
+      <% @contacts.each do |contact| %>
+        <tr>
+          <td><%= contact.name %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.phone %></td>
+          <td><%= contact.address %></td>
+          <td><%= contact.company %></td>
+          <td><%= get_age(contact.birtday) %></td>
+          <td><%= link_to 'Show', contact %></td>
+          <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
+          <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <!-- DISPLAYS BUTTON TO HIDE  -->        
+          <td>
+            <%= check_box_tag "hide[]", "#{contact.id}" %>
+            <%= label_tag "hide", "hide[#{contact.id}]"  %> 
+          </td>
+        </tr>
+
+      <% end %>
+        <tr>
+          <td>
+          <%= submit_tag "Deactivate" %>
+          </td>
+        </tr>
+    <% end %> 
+
   </tbody>
 </table>
 

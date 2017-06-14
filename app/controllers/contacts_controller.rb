@@ -6,7 +6,7 @@ class ContactsController < ApplicationController
   # GET /contacts
   # GET /contacts.json
   def index
-    @contacts = Contact.where( "user_id = ?", current_user.id ) || []    
+    @contacts = Contact.where( "user_id = ? and deactivate = false", current_user.id ) || []    
 
   end
 
@@ -64,6 +64,23 @@ class ContactsController < ApplicationController
     end
   end
 
+  def deactivate_contact 
+    if !params['hide']
+      
+      redirect_to contacts_path
+
+    else
+
+     params['hide'].each do |i| 
+       @contact_to_hide = Contact.find(i)
+       @contact_to_hide.update deactivate: true
+     end
+
+     redirect_to contacts_path
+
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_contact
@@ -74,4 +91,6 @@ class ContactsController < ApplicationController
     def contact_params
       params.require(:contact).permit(:name, :email, :phone, :address, :company, :birtday, :user_id)
     end
+
+
 end
