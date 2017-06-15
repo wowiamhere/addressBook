@@ -7,7 +7,7 @@ class ContactsController < ApplicationController
   # GET /contacts.json
   def index
     @contacts = Contact.where( "user_id = ? and deactivate = false", current_user.id ) || []    
-
+    @deactivated_contacts = Contact.where( "deactivate = true")
   end
 
   # GET /contacts/1
@@ -64,21 +64,50 @@ class ContactsController < ApplicationController
     end
   end
 
-  def deactivate_contact 
-    if !params['hide']
-      
-      redirect_to contacts_path
 
+    # - gets called via POST (form) in app/views/contacts/index.html.erb
+    #   + POST from multiple check_box_tag 
+    # - goes through array params['hide'] of Contact id's
+    # - sets Contact.deactivate to true 
+  def deactivate_contact 
+
+    to_hide = params['hide']
+    go = redirect_to contacts_path
+
+    if !to_hide
+      go
     else
 
-     params['hide'].each do |i| 
-       @contact_to_hide = Contact.find(i)
+     to_hide.each do |i| 
+       @contact_to_hide = Contact.find i
        @contact_to_hide.update deactivate: true
      end
 
-     redirect_to contacts_path
+     go
 
     end
+  end
+
+    # - gets called via POST (form) in app/views/_deactivated_contact.html.erb
+    #   + POST from multiple check_box_tag 
+    # - goes through array params['show'] of Contact id's
+    # - sets Contact.deactivate to false     
+  def reactivate_contact 
+    
+    to_show = params['show']
+    go = redirect_to contacts_url
+
+    if !to_show
+      go 
+    else
+      
+      to_show.each do |i|
+        @contact_to_show = Contact.find i
+        @contact_to_show.update deactivate: false
+      end
+
+    end
+
   end
 
   private

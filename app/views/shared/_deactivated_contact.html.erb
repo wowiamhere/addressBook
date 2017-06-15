@@ -1,0 +1,22 @@
+<!-- 
+###########
+
+- rendered in app/views/contacts/index.html.erb next 
+
+- gets it's data passed from ContactsController#index
+
+- displays Contacts.deactivate = true (attribute default false)
+
+- Contact.deactivate set by user in app/views/contacts/index.html.erb via form
+  post to ContactsController#deactivate_contact
+
+##########
+-->
+
+<li>
+  <%= deactivated_contact.name %>
+</li>
+<span>
+  <%= check_box_tag "show[]", "#{deactivated_contact.id}" %>
+  <%= label_tag "show[]" %>
+</span>

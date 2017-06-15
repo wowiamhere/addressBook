@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
     # 
   post '/deactivate_contact' => 'contacts#deactivate_contact'
+  post '/reactivate_contact' => 'contacts#reactivate_contact'
 
 
 end
