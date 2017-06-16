@@ -6,20 +6,30 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+<!-- for bootstrap mobile -->
+    <meta name="viewport" content="with=device-width, initial-scale=1" >
+
   </head>
 
   <body>
 
+<!-- for Bootstrap -->
+    <div class="container-fluid">
+
           <!-- for flash messages -->
-    <div class="">
-      <% flash.each do |message_type, message| %>
-        <div class="alert alert-<%= message_type %> cFlashMsg"><%= message %></div>
-      <% end %>
-    </div> 
+      <div class="">
+        <% flash.each do |message_type, message| %>
+          <div class="alert alert-<%= message_type %> cFlashMsg"><%= message %></div>
+        <% end %>
+      </div> 
 
-      <!-- fore login/out capabilities -->
-    <%= render 'shared/session_state' %>
+        <!-- fore login/out capabilities -->
+      <%= render 'shared/session_state' %>
 
-    <%= yield %>
+      <%= yield %>
+
+    </div> <!-- .container-fluid -->
+
   </body>
 </html>
