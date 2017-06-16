@@ -2,6 +2,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* app/views/layouts/application.html.erb */
+.navClass{
+  text-align:center;
+}
+
+/*  app/views/users/sessions/new.html.erb */
 .sessionH2{
   text-align:center;
 }
@@ -13,9 +19,77 @@
 }
 
 
-@media screen and (min-width: 250px) and (max-width: 490px){}
-@media screen and (min-width: 491px) and (max-width: 767px){/* --------------------- */}
-@media screen and (min-width: 768px) and (max-width: 991px){/* --------------------- */}
+/* app/views/contacts/index.html.erb */
+.contactsListing{
+  width:80%;
+}
+.contIndxH1{
+  text-align:center;
+}
+
+.contIndxDiv{
+  margin: 0 2%;
+}
+
+.contacts{
+  border-style: outset;
+  padding: 2%;
+  margin: 1%;
+}
+.editContact{
+
+}
+.hideBox{
+
+}
+.contRestore{
+  text-align: center;
+}
+
+.hiddenH3{
+  text-align:center;
+}
+
+.deactivatedUl{
+  list-style:none;
+}
+
+.deactivateSubmit{
+}
+
+@media screen and (min-width: 250px) and (max-width: 490px){
+
+body{
+  font-size: 114%;
+}
+
+/* app/views/contacts/index.html.erb */
+.contRestore{ 
+  text-align: center;
+ }
+
+}
+@media screen and (min-width: 491px) and (max-width: 767px){/* --------------------- */
+
+body{
+  font-size: 114%;
+}
+
+/* app/views/contacts/index.html.erb */
+.contRestore{ 
+  text-align: center;
+ }
+
+}
+@media screen and (min-width: 768px) and (max-width: 991px){/* --------------------- */
+
+/* app/views/contacts/index.html.erb */
+.contRestore{ 
+  text-align: center;
+ }
+
+}
+
 @media screen and (min-width: 992px) and (max-width: 1199px){/* --------------------- */}
 @media screen and (min-width: 1200px) and (max-width: 1499px){/* --------------------- */}
 @media screen and (min-width: 1500px) and (max-width: 1700px){/* ------------- */}

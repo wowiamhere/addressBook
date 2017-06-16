@@ -2,87 +2,120 @@
 ###########
   - displays @contacts from contacts#index (all contacts)
   - uses app/helpers/contact_helper.rb returns converted birthdate to age
+
+  Bootstrap
+    - crates 1 main row
+      + contacts
+      + deactivated (sidebar)
 ##########
 -->
 
+<div class="row">
 
-<h1>Contacts</h1>
+  <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10" >
 
-<div class="">
+    <div class="contactsListing">
 
-  <table>
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-        <th>Address</th>
-        <th>Company</th>
-        <th>Age</th>
-        <th colspan="3"></th>
-      </tr>
-    </thead>
+      <h1 class="contIndxH1">Contacts</h1>
 
-    <tbody>
-
-  <!-- 
-################################
-  - form for soft deletion 
-  - takes a set of cliked boxex and sets ther db column 'soft_del' to true
-  - POsts to contactsController#deactivate_contact
-################################        
-  -->    
-    
+      <!-- 
+    ################################
+      - form for soft deletion 
+      - takes a set of cliked boxex and sets ther db column 'soft_del' to true
+      - POsts to contactsController#deactivate_contact
+    ################################        
+      -->    
+        
       <%= form_tag deactivate_contact_path do  %>
+
+       <div class="row">
+
         <% @contacts.each do |contact| %>
-          <tr>
-            <td><%= contact.name %></td>
-            <td><%= contact.email %></td>
-            <td><%= contact.phone %></td>
-            <td><%= contact.address %></td>
-            <td><%= contact.company %></td>
-            <td><%= get_age(contact.birtday) %></td>
-            <td><%= link_to 'Show', contact %></td>
-            <td><%= link_to 'Edit', edit_contact_path(contact) %></td>
-            <td><%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <!-- DISPLAYS BUTTON TO HIDE  -->        
-            <td>
-              <%= check_box_tag "hide[]", "#{contact.id}" %>
-              <%= label_tag "hide", "hide[#{contact.id}]"  %> 
-            </td>
-          </tr>
+            <div class="col-xs-12 col-sm-4 col-md-3 col-lg-3" >
 
+              <div class="contacts">
+
+                <p>
+                  <span>Name:</span> 
+                  <%= contact.name %>
+                </p>
+                <p>
+                  <span>Email: </span>
+                  <%= contact.email %>
+                </p>            
+                <p>
+                  <span>Phone: </span>
+                  <%= contact.phone %>
+                </p>
+                <p>
+                  <span>Address: </span>
+                  <%= contact.address %>
+                </p>
+                <p>
+                  <span>Age: </span>
+                  <%= get_age(contact.birtday) %>
+                </p>
+
+                <div class="editContact">
+               
+                  <p>
+                  <%= link_to 'Show', contact %>|
+                  <%= link_to 'Edit', edit_contact_path(contact) %>|
+                  <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  </p>
+
+          <!-- DISPLAYS BUTTON TO HIDE  -->        
+                  <div class="hideBox">
+                    <%= check_box_tag "hide[]", "#{contact.id}" %>
+                    <%= label_tag "hide", "hide[#{contact.id}]"  %> 
+                  </div>
+
+                </div> <!-- editContact -->
+
+              </div><!-- .contacts -->
+
+            </div> <!-- cols -->
+
+          <% end %>
+
+        </div> <!-- row -->
+
+        <%= submit_tag "Deactivate Checked", class: "deactivateSubmit" %>
+
+      <% end %>  <!-- form -->
+
+      <br>
+
+    </div><!-- contactsListing -->
+
+    <%= button_to 'New Contact', new_contact_path, method: 'get' %>
+
+  </div><!-- cols  -->
+
+
+  <div class="col-xs-12 col-sm-1 col-md-1 col-lg-1">
+
+    <div class="contRestore">
+     
+      <h3 class="hiddenH3">Hidden</h3>
+
+      <ul class="deactivatedUl"> 
+      <!-- 
+    ################################
+      - form for restating a contact 
+      - takes a set of cliked boxex and sets ther db column 'soft_del' to false
+      - POsts to contactsController#reactivate_contact
+    ################################        
+      -->      
+        <%= form_tag reactivate_contact_path do %>
+          <%= render partial: 'shared/deactivated_contact', collection: @deactivated_contacts %>
+          <br>
+          <%= submit_tag 'Reactivate' %>
         <% end %>
-          <tr>
-            <td>
-            <%= submit_tag "Deactivate" %>
-            </td>
-          </tr>
-      <% end %> 
+      </ul>
 
-    </tbody>
-  </table>
+    </div> <!-- contRestore -->
 
-  <br>
+  </div> <!-- cols -->
 
-  <%= link_to 'New Contact', new_contact_path %>
-
-</div>
-
-<div class="">
- 
-  <ul> 
-  <!-- 
-################################
-  - form for restating a contact 
-  - takes a set of cliked boxex and sets ther db column 'soft_del' to false
-  - POsts to contactsController#reactivate_contact
-################################        
-  -->      
-    <%= form_tag reactivate_contact_path do %>
-      <%= render partial: 'shared/deactivated_contact', collection: @deactivated_contacts %>
-      <%= submit_tag 'Reactivate' %>
-    <% end %>
-  </ul>
-
-</div>
+</div> <!-- row -->

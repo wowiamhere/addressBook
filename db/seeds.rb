@@ -2,7 +2,7 @@
   password: "password", 
   password_confirmation: "password"
 
-5.times do |each|
+20.times do |each|
   Contact.create(
     name: "contact_#{each}",
     email: "contact_#{each}@email.com",
