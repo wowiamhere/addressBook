@@ -1,6 +1,18 @@
-<h1>Editing Contact</h1>
+<div class="row">
 
-<%= render 'form', contact: @contact %>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-<%= link_to 'Show', @contact %> |
-<%= link_to 'Back', contacts_path %>
+  <div class="editContDiv">
+  
+    <h1 class="editContH1">Editing Contact</h1>
+
+    <%= render 'form', contact: @contact %>
+
+    <%= link_to 'Show', @contact %> |
+    <%= link_to 'Back', contacts_path %>
+
+  </div><!-- editContDiv -->
+
+  </div><!-- cols
+
+</div><!-- row -->

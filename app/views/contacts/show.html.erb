@@ -1,34 +1,51 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
 
-<p>
-  <strong>Name:</strong>
-  <%= @contact.name %>
-</p>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 
-<p>
-  <strong>Email:</strong>
-  <%= @contact.email %>
-</p>
+    <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @contact.phone %>
-</p>
+    <div class="userShow">
 
-<p>
-  <strong>Address:</strong>
-  <%= @contact.address %>
-</p>
+      <p>
+        <span>Name:</span>
+        
+        <%= @contact.name %>
+      </p>
 
-<p>
-  <strong>Company:</strong>
-  <%= @contact.company %>
-</p>
+      <p>
+        <span>Email:</span>
+        
+        <%= @contact.email %>
+      </p>
 
-<p>
-  <strong>Birtday:</strong>
-  <%= @contact.birtday %>
-</p>
+      <p>
+        <span>Phone:</span>
+        
+        <%= @contact.phone %>
+      </p>
 
-<%= link_to 'Edit', edit_contact_path(@contact) %> |
-<%= link_to 'Back', contacts_path %>
+      <p>
+        <span>Address:</span>
+        
+        <%= @contact.address %>
+      </p>
+
+      <p>
+        <span>Company:</span>
+        
+        <%= @contact.company %>
+      </p>
+
+      <p>
+        <span>Birtday:</span>
+        <%= @contact.birtday %>
+      </p>
+
+      <%= link_to 'Edit', edit_contact_path(@contact) %> |
+      <%= link_to 'Back', contacts_path %>
+
+    </div><!-- userShow -->
+
+  </div><!-- cols -->
+
+</div><!-- row -->

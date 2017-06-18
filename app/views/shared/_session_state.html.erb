@@ -15,6 +15,14 @@
       <%= link_to('logout', destroy_user_session_path, method: :delete) %>
     </button>
 
+    <button class="btn-lk btn-md newPostBtn">
+      <%= link_to('edit', edit_user_registration_path, method: :get) %>
+    </button>
+
+    <button class="btn-lk btn-md newPostBtn">
+      <%= link_to('home', root_path, method: :get) %>
+    </button>    
+
  <% end %>
 
 </div>

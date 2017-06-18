@@ -11,7 +11,11 @@ Rails.application.routes.draw do
     root to: "users/sessions#new"
   end
 
-    # 
+    # - soft delete
+    # - user clicks check box at app/views/contacts/index
+    # - User.deactivate toggled true/false
+    # - User.deactivated = true 
+    #   + displayed in side bar
   post '/deactivate_contact' => 'contacts#deactivate_contact'
   post '/reactivate_contact' => 'contacts#reactivate_contact'
 

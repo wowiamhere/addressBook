@@ -2,74 +2,107 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-/* app/views/layouts/application.html.erb */
-.navClass{
-  text-align:center;
+/* ----------- app/views/layouts/application.html.erb */
+.navClass{text-align:center;}
+footer{
+  height:300px;
+  background-color:black;
 }
 
-/*  app/views/users/sessions/new.html.erb */
-.sessionH2{
-  text-align:center;
-}
+/* ----------- app/views/devise/registration/new */
+.signUpH2{text-align:center;}
+.sinUpForm{text-align:center;}
 
+/* -----------  app/views/users/sessions/new.html.erb */
+.sessionH2{text-align:center;}
 .signInForm{
   width: 30%;
   margin: auto;  
   text-align:center;
 }
 
+/* ----------- app/views/devise/registrations/edit.html.erb */
+.editUserH2{text-align:center;}
+.editUserDiv{text-align:center;}
 
-/* app/views/contacts/index.html.erb */
+/* ----------- app/views/contacts/index.html.erb */
+.newContact{
+  display:block;
+  margin:auto;
+}
+.deactivateSubmit{
+  display:block;
+  margin:auto;  
+}
 .contactsListing{
   width:80%;
+  margin:auto;
 }
-.contIndxH1{
-  text-align:center;
-}
-
-.contIndxDiv{
-  margin: 0 2%;
-}
-
+.contIndxH1{text-align:center;}
+.contIndxDiv{margin: 0 2%;}
 .contacts{
   border-style: outset;
   padding: 2%;
   margin: 1%;
+  text-align:right;
 }
-.editContact{
-
+.contacts p span {
+  text-align: left;
+  display: block;
 }
-.hideBox{
-
-}
+.editContact{text-align:left;}
+.hideBox{}
 .contRestore{
   text-align: center;
+  background-color: aliceblue;
+    width: 90%;
+    margin: auto;  
 }
+.hiddenH3{text-align:center;}
+.deactivatedUl{list-style:none;}
 
-.hiddenH3{
+
+/* ----------- app/views/contacts/show.html.erb */
+.userShow{
+  width:21%;
+  margin:auto;
+  text-align:center;}
+.userShow span{
+  display:block;
+  text-align:left;
+}
+.userShow p{text-align:right;}
+
+
+/* ------------- app/views/contacts/edit */
+.editContH1{text-align:center;}
+.editContDiv{
+  width:20%;
+  margin:auto;
   text-align:center;
 }
-
-.deactivatedUl{
-  list-style:none;
+.editContDiv form input{
+  text-align:right;
+  border-style:outset;
 }
 
-.deactivateSubmit{
-}
 
+
+
+/* ------------------------------------------------------MEDIA QUERIES */
 @media screen and (min-width: 250px) and (max-width: 490px){
 
 body{
   font-size: 114%;
 }
 
-/* app/views/contacts/index.html.erb */
+/* ----------- app/views/contacts/index.html.erb */
 .contRestore{ 
   text-align: center;
  }
 
 }
-@media screen and (min-width: 491px) and (max-width: 767px){/* --------------------- */
+@media screen and (min-width: 491px) and (max-width: 767px){/* ----------- --------------------- */
 
 body{
   font-size: 114%;
