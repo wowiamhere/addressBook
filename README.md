@@ -47,7 +47,8 @@ This displays list of contacts with options to:
 - associations present (tested for Contacts)
 
 ### Helpers
-- 1 to convert birthdate to age
+- app/helpers/conatcts_helper#get_age(some_date)
+  + convert birthdate to age
 
 ### Controllers
 - ContactsController
