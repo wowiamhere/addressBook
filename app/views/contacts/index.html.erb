@@ -19,6 +19,7 @@
       <h1 class="contIndxH1"><%= @function %></h1>
 
       <%= button_to 'New Contact', new_contact_path, method: 'get', class:'newContact' %>
+      <%= button_to 'Csv All', contacts_path(format:'csv'), method: 'get', class: 'csvAll' %>
 
       <!-- 
     ################################
@@ -31,7 +32,6 @@
       <%= form_tag deactivate_contact_path do  %>
 
       <%= submit_tag "Deactivate Checked", class: "deactivateSubmit" %>
-
 
        <div class="row">
 
@@ -71,7 +71,14 @@
                   <p>
                   <%= link_to 'Show', contact %>|
                   <%= link_to 'Edit', edit_contact_path(contact) %>|
-                  <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <%= link_to 'Destroy', contact, method: :delete, data: { confirm: 'Are you sure?' } %>|
+
+<!-- - just a button for csv download 
+     - also used at views/contacts/show
+-->      
+                  <%= render partial: 'shared/csv_button', locals: { id: contact.id } %>
+
+
                   </p>
 
           <!-- DISPLAYS BUTTON TO HIDE  -->        

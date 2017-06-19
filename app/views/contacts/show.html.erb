@@ -42,7 +42,12 @@
       </p>
 
       <%= link_to 'Edit', edit_contact_path(@contact) %> |
-      <%= link_to 'Back', contacts_path %>
+      <%= link_to 'Back', contacts_path %> |
+
+<!-- - just a button for csv download 
+     - also used at views/contacts/index
+-->      
+      <%= render partial: 'shared/csv_button', locals: { id: @contact.id } %>
 
     </div><!-- userShow -->
 

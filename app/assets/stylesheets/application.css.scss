@@ -1,4 +1,10 @@
 
+/*
+ *= require_tree .
+ *= require_self
+ */
+
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -29,79 +35,6 @@ footer{
 /* ----------- app/views/devise/registrations/edit.html.erb */
 .editUserH2{text-align:center;}
 .editUserDiv{text-align:center;}
-
-/* ----------- app/views/contacts/index.html.erb */
-.newContact{
-  display:block;
-  margin:auto;
-}
-.deactivateSubmit{
-  display:block;
-  margin:auto;  
-}
-.contactsListing{
-  width:80%;
-  margin:auto;
-  background-color: beige;
-}
-.contIndxH1{text-align:center;}
-.contIndxDiv{margin: 0 2%;}
-.contacts{
-  border-style: outset;
-  padding: 2%;
-  margin: 1%;
-  text-align:right;
-}
-.contacts p span {
-  text-align: left;
-  display: block;
-}
-.editContact{text-align:left;}
-.hideBox{}
-.contRestore{
-  text-align: center;
-  background-color: aliceblue;
-    width: 90%;
-    margin: auto;  
-}
-.hiddenH3{text-align:center;}
-.deactivatedUl{
-  list-style:none;
-  margin: 1% 0 5% 0;
-  display: inline-block;
-}
-
-/* ----searching ------- */
-.searchCont{
-  background-color: antiquewhite;
-  padding: 2% 0 2% 3%;  
-}
-
-/* ----------- app/views/contacts/show.html.erb */
-.userShow{
-  width:21%;
-  margin:auto;
-  text-align:center;}
-.userShow span{
-  display:block;
-  text-align:left;
-}
-.userShow p{text-align:right;}
-
-
-/* ------------- app/views/contacts/edit */
-.editContH1{text-align:center;}
-.editContDiv{
-  width:20%;
-  margin:auto;
-  text-align:center;
-}
-.editContDiv form input{
-  text-align:right;
-  border-style:outset;
-}
-
-
 
 
 /* ------------------------------------------------------MEDIA QUERIES */

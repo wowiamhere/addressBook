@@ -1,5 +1,7 @@
 class ContactsController < ApplicationController
 
+  require 'csv'
+
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
@@ -10,28 +12,44 @@ class ContactsController < ApplicationController
 #   + used in #index (here) and (search_contacts)
 #   + #index is reused by #search_contacts for rendering results
 #   + string rendered in <h1> at app/views/contacts/index.html.erb
+# - responds with csv when pormpted by user 
   def index
     @contacts = Contact.where( "user_id = ? and deactivate = false", current_user.id ) || []    
-    @deactivated_contacts = Contact.where( "deactivate = true")
+    @deactivated_contacts = Contact.where( "user_id = ? and deactivate = true", current_user.id)
     @function = "Contacts"
+
+    respond_to do |format| 
+
+      format.html 
+      format.csv { send_data Contact.to_csv }
+
+    end
+
   end
 
-  # GET /contacts/1
-  # GET /contacts/1.json
+    # - displays a contact 
+    # - returns conrresponding csv 
   def show
+
+    @contact = Contact.find params['id']
+    
+    respond_to do |format|    
+
+      format.html 
+
+      format.csv { send_data @contact.to_csv }
+
+    end
+
   end
 
-  # GET /contacts/new
   def new
     @contact = Contact.new
   end
 
-  # GET /contacts/1/edit
   def edit
   end
 
-  # POST /contacts
-  # POST /contacts.json
   def create
     @contact = Contact.new(contact_params)
 
@@ -46,8 +64,6 @@ class ContactsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /contacts/1
-  # PATCH/PUT /contacts/1.json
   def update
     respond_to do |format|
       if @contact.update(contact_params)
@@ -60,8 +76,6 @@ class ContactsController < ApplicationController
     end
   end
 
-  # DELETE /contacts/1
-  # DELETE /contacts/1.json
   def destroy
     @contact.destroy
     respond_to do |format|
@@ -126,7 +140,7 @@ class ContactsController < ApplicationController
 
     search_term = params['search'][0]
 
-    if search_term
+    if search_term.length != 0
 
       @contacts = Contact.where "name = ?", search_term
 
@@ -134,22 +148,19 @@ class ContactsController < ApplicationController
 
       render :index
 
+    else
+      redirect_to contacts_path
     end
-
-    redirect_to contacts_path
-
 
   end  
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_contact
       @contact = Contact.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def contact_params
-      params.require(:contact).permit(:name, :email, :phone, :address, :company, :birtday, :user_id)
+      params.require(:contact).permit(:name, :email, :phone, :address, :company, :birtday, :user_id, :format)
     end
 
 
