@@ -19,5 +19,9 @@ Rails.application.routes.draw do
   post '/deactivate_contact' => 'contacts#deactivate_contact'
   post '/reactivate_contact' => 'contacts#reactivate_contact'
 
+    # - search box at: views/contacts/index.html.erb
+    # - user types search string
+    # - list of matching Contacts is displayed
+  post 'search_contacts' => 'contacts#search_contacts'
 
 end

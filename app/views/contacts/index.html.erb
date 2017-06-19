@@ -16,7 +16,7 @@
 
     <div class="contactsListing">
 
-      <h1 class="contIndxH1">Contacts</h1>
+      <h1 class="contIndxH1"><%= @function %></h1>
 
       <%= button_to 'New Contact', new_contact_path, method: 'get', class:'newContact' %>
 
@@ -77,7 +77,7 @@
           <!-- DISPLAYS BUTTON TO HIDE  -->        
                   <div class="hideBox">
                     <%= check_box_tag "hide[]", "#{contact.id}" %>
-                    <%= label_tag "hide", "hide[#{contact.id}]"  %> 
+                    <%= label_tag "hide", "hide"  %> 
                   </div>
 
                 </div> <!-- editContact -->
@@ -125,6 +125,25 @@
       </ul>
 
     </div> <!-- contRestore -->
+
+<!-- 
+- rails search form 
+- looks for a contact
+- ContactsController#search_contact(name)
+
+-->
+    <div class="searchCont">
+
+      <%= form_tag search_contacts_path do %>
+        <%= label_tag "search" %>
+        <br>
+        <%= text_field_tag "search[]", nil, placeholder: 'search by name' %>
+        <br>
+        <%= submit_tag 'Search' %>
+      <% end %>
+
+    </div> <!-- searchCont -->
+
 
   </div> <!-- cols -->
 

@@ -3,11 +3,17 @@ class ContactsController < ApplicationController
   before_action :set_contact, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
 
-  # GET /contacts
-  # GET /contacts.json
+
+# - pulls list of contacts dependend ont user signed in
+# - pulls deactivated contatcs for separate displaying
+# - @function 
+#   + used in #index (here) and (search_contacts)
+#   + #index is reused by #search_contacts for rendering results
+#   + string rendered in <h1> at app/views/contacts/index.html.erb
   def index
     @contacts = Contact.where( "user_id = ? and deactivate = false", current_user.id ) || []    
     @deactivated_contacts = Contact.where( "deactivate = true")
+    @function = "Contacts"
   end
 
   # GET /contacts/1
@@ -108,7 +114,32 @@ class ContactsController < ApplicationController
 
     end
 
-  end
+  end # reactivate_contact
+
+    # - search box at: views/contacts/index.html.erb
+    # - user types search string
+    # - list of matching Contacts is displayed
+    # - reuses #index and @contacts for rendering results
+    # - @function
+    # -   + rendered in <h1> at app/views/contacts/index.html.erb
+  def search_contacts 
+
+    search_term = params['search'][0]
+
+    if search_term
+
+      @contacts = Contact.where "name = ?", search_term
+
+      @function = "Search Results"
+
+      render :index
+
+    end
+
+    redirect_to contacts_path
+
+
+  end  
 
   private
     # Use callbacks to share common setup or constraints between actions.

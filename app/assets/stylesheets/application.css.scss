@@ -3,7 +3,12 @@
 @import "bootstrap";
 
 /* ----------- app/views/layouts/application.html.erb */
-.navClass{text-align:center;}
+.bodyWrap{min-height:440px}
+.navClass{
+  text-align:center;
+  margin: 1% 0 2% 0;
+  padding: 1% 0 1% 0;  
+}
 footer{
   height:300px;
   background-color:black;
@@ -37,6 +42,7 @@ footer{
 .contactsListing{
   width:80%;
   margin:auto;
+  background-color: beige;
 }
 .contIndxH1{text-align:center;}
 .contIndxDiv{margin: 0 2%;}
@@ -59,8 +65,17 @@ footer{
     margin: auto;  
 }
 .hiddenH3{text-align:center;}
-.deactivatedUl{list-style:none;}
+.deactivatedUl{
+  list-style:none;
+  margin: 1% 0 5% 0;
+  display: inline-block;
+}
 
+/* ----searching ------- */
+.searchCont{
+  background-color: antiquewhite;
+  padding: 2% 0 2% 3%;  
+}
 
 /* ----------- app/views/contacts/show.html.erb */
 .userShow{
@@ -92,38 +107,49 @@ footer{
 /* ------------------------------------------------------MEDIA QUERIES */
 @media screen and (min-width: 250px) and (max-width: 490px){
 
-body{
-  font-size: 114%;
-}
+body{font-size: 114%;}
 
-/* ----------- app/views/contacts/index.html.erb */
-.contRestore{ 
-  text-align: center;
- }
+/* -----------  app/views/users/sessions/new.html.erb */
+.signInForm{width: 75%;}
+/* ----------- app/views/contacts/show.html.erb */
+.userShow{width:75%;}
+  /* ------------- app/views/contacts/edit */
+.editContDiv{width:75%;}
 
 }
 @media screen and (min-width: 491px) and (max-width: 767px){/* ----------- --------------------- */
 
-body{
-  font-size: 114%;
-}
+body{font-size: 114%;}
 
-/* app/views/contacts/index.html.erb */
-.contRestore{ 
-  text-align: center;
- }
+/* -----------  app/views/users/sessions/new.html.erb */
+.signInForm{width: 75%;}
+/* ----------- app/views/contacts/show.html.erb */
+.userShow{width:75%;}
+  /* ------------- app/views/contacts/edit */
+.editContDiv{width:75%;}
+
 
 }
 @media screen and (min-width: 768px) and (max-width: 991px){/* --------------------- */
 
-/* app/views/contacts/index.html.erb */
-.contRestore{ 
-  text-align: center;
- }
+/* -----------  app/views/users/sessions/new.html.erb */
+.signInForm{width: 75%;}
+/* ----------- app/views/contacts/show.html.erb */
+.userShow{width:75%;}
+  /* ------------- app/views/contacts/edit */
+.editContDiv{width:75%;}
 
 }
 
-@media screen and (min-width: 992px) and (max-width: 1199px){/* --------------------- */}
+@media screen and (min-width: 992px) and (max-width: 1199px){/* --------------------- */
+/* -----------  app/views/users/sessions/new.html.erb */
+.signInForm{width: 50%;}
+/* ----------- app/views/contacts/show.html.erb */
+.userShow{width:50%;}
+  /* ------------- app/views/contacts/edit */
+.editContDiv{width:50%;}
+
+}
 @media screen and (min-width: 1200px) and (max-width: 1499px){/* --------------------- */}
 @media screen and (min-width: 1500px) and (max-width: 1700px){/* ------------- */}
 @media screen and (min-width: 1701px) and (max-width: 2000px){}
