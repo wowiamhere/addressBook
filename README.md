@@ -1,15 +1,17 @@
-#### Sergio Samayoa  
-#### portfolio:  **ZenCodeMaster.com**  
-#### resume:  **bitbucket.org/wowiamhere/coding-resume**  
+*Sergio Samayoa*  
+*portfolio:*  **ZenCodeMaster.com**  
+*resume:*  **bitbucket.org/wowiamhere/coding-resume**  
 
-Employment submission for **Jungle Coders**  
+Employment submission for **Jungle Coders** remote developer.
 
-Root is the Devise's Sign In page 
-This displays list of contacts with options to:  
+*Root is the Devise's Sign In page* 
+which displays list of contacts with options to:  
 - view
 - edit
 - delete
 - archive
+- csv
+- search
 
 ### Dateabase
 - Postgres  
