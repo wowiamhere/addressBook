@@ -55,3 +55,7 @@ This displays list of contacts with options to:
   + #deactivate_contact (archiving)
 
 ### Search Capabilities
+- ContactsController#search_contacts
+  + takes user input (not sanitized) from app/views/contacts/index.html.erb
+  + searches for user.name
+  + renders results reusing #indes and @contacts
