@@ -4,6 +4,8 @@
 
 Employment submission for **Jungle Coders** remote developer.
 
+**db/seeds.rb ready to seed Postgres db**
+
 *Root is the Devise's Sign In page* 
 which displays list of contacts with options to:  
 - view
