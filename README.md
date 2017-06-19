@@ -60,3 +60,7 @@ This displays list of contacts with options to:
   + takes user input (not sanitized) from app/views/contacts/index.html.erb
   + searches for user.name
   + renders results reusing #indes and @contacts
+
+### CSV capabilities
+- for each contact
+- for all contacts by user
