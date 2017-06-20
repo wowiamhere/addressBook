@@ -4,7 +4,19 @@
 
 Employment submission for **Jungle Coders** remote developer.
 
-**db/seeds.rb ready to seed Postgres db**
+
+**TO RUN APP**
+
+1. clone from:  
+`https://github.com/wowiamhere/addressBook.git`  
+2. run  
+`bundle install`  
+3. run  
+`bin/rails db:setup`  
+4. run  
+`bin/rails db:seed`  
+
+**That's it**
 
 *Root is the Devise's Sign In page* 
 which displays list of contacts with options to:  
