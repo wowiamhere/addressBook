@@ -4,6 +4,18 @@
 
 Employment submission for **Jungle Coders** remote developer.
 
+**REPO**  
+`https://github.com/wowiamhere/addressBook`  
+
+**HEROKU**    
+`https://railsaddressbook.herokuapp.com/`  
+try (same as seeds)   
+*email:* 'user1@email com'  
+*password:* 'password'  
+or  
+*email:* "user2@email com"  
+*password:* 'password'  
+
 
 **TO RUN APP**
 
